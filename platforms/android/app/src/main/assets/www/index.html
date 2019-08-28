@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <title>MIT APP</title>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" class="header">
+                <h1 id="app-title">PREMIERE APPLICATION</h1>
+                <a class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-bars ui-btn-icon-notext" rel="external">Bars</a>
+            </div>
+            <div role="main" class="ui-content">
+                <h1>HELLO AUGUSTIN</h1>
+                <form>
+                    <div class="ui-body">
+                        <h3>ENREGISTREMENT D'UN UTILISATEUR</h3>
+                        <div data-role="tabs" id="tabs">
+                            <div data-role="navbar">
+                                    <ul>
+                                    <li><a href="#menu1" data-ajax="false">menu1</a></li>
+                                    <li><a href="#menu2" data-ajax="false">menu2</a></li>
+                                    <li><a href="#menu3" data-ajax="false">menu3</a></li>
+                                </ul>
+                            </div>
+                            <div id="menu1">
+                                <div class="ui-field-contain">
+                                    <label for="nom">Nom :</label>
+                                    <input  type="text"  id="nom" name="nom" placeholder="Ex: gims" />
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="prenom">Prenom : </label>
+                                    <input  type="text" id="prenom" name="prenom" placeholder="Ex: marco" />
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="select-sexe" class="select">SEXE : </label>
+                                    <select name="select-sexe" id="select-sexe">
+                                        <option value="Masculin">Masculin</option>
+                                        <option value="Femimin">Femimin</option>
+                                    </select>
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="email">E-mail : </label>
+                                    <input  type="email" id="email" name="email" placeholder="Ex: marco@gmail.com" />
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="select-op" class="select">TYPE DE CALCUL : </label>
+                                    <select name="select-op" id="select-op">
+                                        <option value="add">+</option>
+                                        <option value="sub">-</option>
+                                        <option value="div">/</option>
+                                        <option value="mup">*</option>
+                                    </select>
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="value1">Valeur 1 : </label>
+                                    <input id="value1" name="value1" placeholder="Ex: 2" />
+                                </div>
+                                <div class="ui-field-contain">
+                                    <label for="value2">Valeur 2 : </label>
+                                    <input id="value2" name="value2" placeholder="Ex: 4" />
+                                </div>
+                                <button id="send" type="button">Envoyer</button>
+                                <!-- The Modal -->
+                                <div id="myModal" class="modal">
+                                <!-- Modal content -->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <span class="close">&times;</span>
+                                          <h5>Details D'enregistrement</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Nom : <span id="nomR"></span></p>
+                                          <p>Prenom : <span id="prenomR"></span></p>
+                                          <p>Sexe : <span id="sexeR"></span></p>
+                                          <p>E-mail : <span id="emailR"></span></p>
+                                          <hr>
+                                          <p>Type Operation : <span id="opR"></span></p>
+                                          <p>Calcul : <span id="calculR"></span></p>
+                                          <hr>
+                                          <p>Resultat : <span id="resultR"></span></p>
+                                        </div>
+                                      </div>
+                                </div>
+                                
+                            </div>
+                            <div id="menu2"></div>
+                            <div id="menu3"></div>
+                        </div>
+                    </div>
+                </form>
+               </div>
+            </div>
+            <footer data-role="footer" data-position="fixed">
+                <h4>@MitApp 2019</h4>
+            </footer>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/platformOverrides.js"></script>
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/calcul.js"></script>
+    </body>
+</html>
